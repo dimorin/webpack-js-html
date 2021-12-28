@@ -9,8 +9,10 @@ const webpackMode = process.env.NODE_ENV || 'development';
 
 module.exports = {
 	mode: webpackMode,
+	// 각 html에 필요한 entry 파일
 	entry: {
 		main: './src/main.js',
+		sub:'./src/sub.js'
 	},
 	output: {
 		path: path.resolve('./dist'),
@@ -51,9 +53,21 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
+		new HtmlWebpackPlugin({ // HTML을 동적으로 생성, 따로 분리하여 번들한 js 파일을 자동으로 추가해준다.
 			title: 'webpack main',
-			template: './src/index.html',
+			template: './src/index.html', // 템플릿으로 사용할 html 파일의 상대경로 또는 절대경로
+			filename:'index.html', // 생성될 html 파일 이름
+			excludeChunks:['sub'], // excludeChunks를 제외한 나머지 entry를 묶으라
+			minify: process.env.NODE_ENV === 'production' ? {
+				collapseWhitespace: true,
+				removeComments: true,
+			} : false
+		}),
+		new HtmlWebpackPlugin({ // HTML을 동적으로 생성, 따로 분리하여 번들한 js 파일을 자동으로 추가해준다.
+			title: 'webpack sub',
+			template: './src/sub.html', // 템플릿으로 사용할 html 파일의 상대경로 또는 절대경로
+			filename:'sub.html', // 생성될 html 파일 이름
+			chunks:['sub'], // 번들된 파일 중에 어떤 것을 html 파일에 포함시킬 건지
 			minify: process.env.NODE_ENV === 'production' ? {
 				collapseWhitespace: true,
 				removeComments: true,
