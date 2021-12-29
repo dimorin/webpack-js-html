@@ -1,3 +1,6 @@
+## 예시
+[https://dimorin.github.io/webpack-js-html/](https://dimorin.github.io/webpack-js-html/)<br>
+[https://dimorin.github.io/webpack-js-html/sub.html](https://dimorin.github.io/webpack-js-html/sub.html)
 ## 특징
 1. 최소한의 설정만 한 웹팩 세팅(자바스크립트 모듈만 빌드)
 > [https://github.com/jmyoow/webpack-js-html](https://github.com/jmyoow/webpack-js-html)
@@ -31,3 +34,16 @@ n lts
 ERROR in unable to locate '경로...'<br>
 위와 같은 에러가 발생한다면, webpack.config.js의 CopyWebpackPlugin에 설정된 파일이 있는지 확인해주세요.<br>
 CSS나 이미지 폴더 등이 필요하지 않다면 webpack.config.js에서 CopyWebpackPlugin 부분 전체를 주석 처리 해주세요.
+
+
+## gh-pages 사용법
+1. `npm i gh-pages -D`
+2. package.json 파일의 script 속성에 아래 코드 추가
+```json
+"deploy": "gh-pages -d dist"
+```
+3. package.json 파일에 homepage 속성 추가
+```json
+"homepage" : "https://(GitHub ID).github.io/(Repository name)/"
+```
+4. `npm run deploy`
