@@ -12,7 +12,8 @@ module.exports = {
 	// 각 html에 필요한 entry 파일
 	entry: {
 		main: './src/main.js',
-		sub:'./src/sub.js'
+		sub:'./src/sub.js',
+		wavemotion: './src/wavemotion.js',
 	},
 	output: {
 		path: path.resolve('./dist'),
@@ -57,7 +58,7 @@ module.exports = {
 			title: 'webpack main',
 			template: './src/index.html', // 템플릿으로 사용할 html 파일의 상대경로 또는 절대경로
 			filename:'index.html', // 생성될 html 파일 이름
-			excludeChunks:['sub'], // excludeChunks를 제외한 나머지 entry를 묶으라
+			excludeChunks:['sub','wavemotion'], // excludeChunks를 제외한 나머지 entry를 묶으라
 			minify: process.env.NODE_ENV === 'production' ? {
 				collapseWhitespace: true,
 				removeComments: true,
@@ -73,6 +74,16 @@ module.exports = {
 				removeComments: true,
 			} : false
 		}),
+		new HtmlWebpackPlugin({
+			title: 'webpack wavemotion',
+			template: './src/wavemotion.html',
+			filename: 'wavemotion.html',
+			chunks:['wavemotion'],
+			minify:process.env.NODE_ENV === 'production' ? {
+				collapseWhitespace: true,
+				removeComments: true,
+			} : false
+		}),
 		new CleanWebpackPlugin(),
 		// CopyWebpackPlugin: 그대로 복사할 파일들을 설정하는 플러그인
 		// 아래 patterns에 설정한 파일/폴더는 빌드 시 dist 폴더에 자동으로 생성됩니다.
@@ -81,7 +92,8 @@ module.exports = {
 		// 그대로 사용할 파일들이 없다면 CopyWebpackPlugin을 통째로 주석 처리 해주세요.
 		new CopyWebpackPlugin({
 			patterns: [
-				{ from: "./src/css/style.css", to: "./css/style.css" },
+				//{ from: "./src/css/style.css", to: "./css/style.css" },
+				{ from: "./src/css", to: "./css" },
 				{ from: "./src/img", to: "./img" },
 			],
 		})

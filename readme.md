@@ -1,12 +1,15 @@
 ## 예시
 [https://dimorin.github.io/webpack-js-html/](https://dimorin.github.io/webpack-js-html/)<br>
-[https://dimorin.github.io/webpack-js-html/sub.html](https://dimorin.github.io/webpack-js-html/sub.html)
+[https://dimorin.github.io/webpack-js-html/sub.html](https://dimorin.github.io/webpack-js-html/sub.html)<br>
+[https://dimorin.github.io/webpack-js-html/wavemotion.html](https://dimorin.github.io/webpack-js-html/wavemotion.html)
 ## 특징
 1. 최소한의 설정만 한 웹팩 세팅(자바스크립트 모듈만 빌드)
 > [https://github.com/jmyoow/webpack-js-html](https://github.com/jmyoow/webpack-js-html)
 2. 여러 html 파일 번들링
 > [여러 html을 각각 번들링 하기](https://choiyb2.tistory.com/96)<br>
 > [output - 여러파일 번들링](https://velog.io/@khw970421/Webpack-5%EC%9E%A5-output-%EC%97%AC%EB%9F%AC%ED%8C%8C%EC%9D%BC-%EB%B2%88%EB%93%A4%EB%A7%81)
+3. canvas wave
+> [https://youtu.be/LLfhY4eVwDY](https://youtu.be/LLfhY4eVwDY)
 ## 사용법
 1. 패키지 설치
 ```bash
